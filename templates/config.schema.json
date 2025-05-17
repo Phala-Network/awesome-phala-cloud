@@ -23,9 +23,9 @@
           "type": "string"
         }
       },
-      "cover": {
+      "icon": {
         "type": "string",
-        "description": "Cover URL"
+        "description": "icon URL"
       },
       "author": {
         "type": "string",
