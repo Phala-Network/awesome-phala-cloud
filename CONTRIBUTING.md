@@ -11,8 +11,7 @@ To submit a new template, please follow these steps:
    - `README.md`: Detailed documentation and usage instructions
    - `docker-compose.yml`: Deployment configuration
 3. Update the project's `README.md` to include your template in the list of available templates
-4. (Optional) Add a cover image in the `templates/covers` directory:
-   - Recommended resolution: 800x500 pixels
+4. (Optional) Add an icon in the `templates/icons` directory:
 5. (Optional) Add a "Deploy to Phala Cloud" button to your template's `README.md`:
    ```markdown
    [![](https://cloud.phala.network/deploy-button.svg)](https://cloud.phala.network/templates/{template_id})

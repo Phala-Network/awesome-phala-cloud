@@ -5,7 +5,7 @@
     "description": "An MCP server enables LLMs to work with the MOOF platform, deployed on Phala Cloud. It can list flows, create new flows, and deploy other MCP servers on Phala Cloud. Additionally, it supports fetching public flow templates, forking flows from templates, retrieving authenticated user flows, publishing or unpublishing flows to/from the shared flow store, and deploying MCP servers directly from GitHub with optional Phala hosting and environment variable support.",
     "repo": "https://github.com/moofdotfun/MOOF-MCP",
     "author": "MOOF",
-    "cover": "moof.png",
+    "icon": "moof.png",
     "envs": [{ "key": "MOOF_API_KEY", "required": true }, { "key": "MCP_API_KEY", "required": true }, { "key": "BASE_URL", "required": false }, { "key": "MCP_BASE_URL", "required": false }],
     "tags": ["MCP", "A2A", "x402"]
   },
@@ -15,7 +15,7 @@
     "description": "A DeFiLlama MCP server deployed on Phala Cloud that enables AI agents to fetch real-time DeFi data, including protocol TVL (Total Value Locked), chain metrics, and token prices.",
     "repo": "https://github.com/Leechael/awesome-phala-cloud/tree/main/prebuilt/demap-defilama",
     "author": "DeMCP",
-    "cover": "mcp-defillama.png",
+    "icon": "mcp-defillama.svg",
     "tags": ["MCP"]
   },
   {
@@ -24,7 +24,7 @@
     "description": "A Context7 MCP server deployed on Phala Cloud that enables AI agents to fetch real-time Context7 data, including protocol TVL (Total Value Locked), chain metrics, and token prices.",
     "repo": "https://github.com/Leechael/awesome-phala-cloud/tree/main/prebuilt/context7-mcp",
     "author": "Phala-Network",
-    "cover": "mcp-context7.png",
+    "icon": "mcp-context7.png",
     "tags": ["MCP"]
   },
   {
@@ -33,7 +33,7 @@
     "description": "A MCP server deployed on Phala Cloud that enables AI agents to fetch real-time data from a given URL.",
     "repo": "https://github.com/Leechael/mcp-servers/tree/main/src/fetch",
     "author": "Leechael",
-    "cover": "mcp-fetch.png",
+    "icon": "mcp-fetch.png",
     "tags": ["MCP"]
   },
   {
@@ -42,7 +42,6 @@
     "description": "A MCP server deployed on Phala Cloud that enables AI agents to think sequentially.",
     "repo": "https://github.com/Leechael/mcp-servers/tree/main/src/sequentialthinking",
     "author": "Leechael",
-    "cover": "mcp-sequential-thinking.jpg",
     "tags": ["MCP"]
   },
   {
@@ -51,7 +50,7 @@
     "description": "A Swarms agent deployed on Phala Cloud that perform a comprehensive legal team swarm for contract creation and management",
     "repo": "https://github.com/The-Swarm-Corporation/Phala-Deployment-Template",
     "author": "The-Swarm-Corporation",
-    "cover": "mcp-swarms.png",
+    "icon": "mcp-swarms.svg",
     "tags": ["MCP"]
   },
   {
@@ -60,7 +59,6 @@
     "description": "This docker compose example sets up a Tor hidden service and serves an nginx website from that.",
     "repo": "https://github.com/Dstack-TEE/dstack-examples/tree/main/tor-hidden-service",
     "author": "Dstack-TEE",
-    "cover": "tor-hidden-service.png",
     "tags": ["Dstack"]
   },
   {
@@ -69,7 +67,6 @@
     "description": "Minimal docker file for using the Helios light client to provide a trustworthy view of the blockchain.",
     "repo": "https://github.com/Dstack-TEE/dstack-examples/tree/main/lightclient",
     "author": "Dstack-TEE",
-    "cover": "lightclient.png",
     "envs": [{ "key": "ETH_RPC_URL", "required": true }],
     "tags": ["Dstack"]
   },
@@ -79,7 +76,6 @@
     "description": "This guide outlines the steps to set up and use a webshell with the ttyd service.",
     "repo": "https://github.com/Dstack-TEE/dstack-examples/tree/main/webshell",
     "author": "Dstack-TEE",
-    "cover": "webshell.png",
     "tags": ["Dstack"]
   },
   {
@@ -88,7 +84,7 @@
     "description": "This is a template for developing a Next.js-based app with boilerplate code targeting deployment on Phala Cloud and DStack. It includes the SDK by default to make integration with TEE features easier.",
     "repo": "https://github.com/Phala-Network/phala-cloud-nextjs-starter",
     "author": "Phala-Network",
-    "cover": "nextjs-starter.png",
+    "icon": "nextjs-starter.svg",
     "tags": ["Starter"]
   },
   {
@@ -97,7 +93,7 @@
     "description": "This is a template for developing a FastAPI-based app with boilerplate code targeting deployment on Phala Cloud and DStack. It includes the SDK by default to make integration with TEE features easier.",
     "repo": "https://github.com/Phala-Network/phala-cloud-python-starter",
     "author": "Phala-Network",
-    "cover": "python-starter.png",
+    "icon": "python-starter.png",
     "tags": ["Starter"]
   },
   {
@@ -106,7 +102,7 @@
     "description": "This is a template for developing a Bun-based app with boilerplate code targeting deployment on Phala Cloud and DStack. It includes the SDK by default to make integration with TEE features easier.",
     "repo": "https://github.com/Phala-Network/phala-cloud-bun-starter",
     "author": "Phala-Network",
-    "cover": "bun-starter.png",
+    "icon": "bun-starter.svg",
     "tags": ["Starter"]
   }
 ]

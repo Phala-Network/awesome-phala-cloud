@@ -35,9 +35,9 @@ def load_schema() -> Dict:
     schema_path = Path(__file__).parent / "config.schema.json"
     return load_json_file(schema_path)
 
-def get_covers_directory() -> Path:
-    """Get the path to the covers directory."""
-    return Path(__file__).parent / "covers"
+def get_icons_directory() -> Path:
+    """Get the path to the icons directory."""
+    return Path(__file__).parent / "icons"
 
 def find_similar_filename(filename: str, available_files: List[str]) -> Optional[str]:
     """Find the most similar filename from the available files."""
@@ -65,33 +65,33 @@ def validate_schema(config: List[Dict], schema: Dict) -> List[Dict]:
     
     return schema_errors
 
-def validate_covers(entries: List[Dict]) -> List[Dict]:
-    """Validate that each entry with a cover field has the corresponding file."""
-    covers_dir = get_covers_directory()
+def validate_icons(entries: List[Dict]) -> List[Dict]:
+    """Validate that each entry with a icon field has the corresponding file."""
+    icons_dir = get_icons_directory()
     errors = []
     
-    # Get all files in the covers directory
+    # Get all files in the icons directory
     try:
-        cover_files = os.listdir(covers_dir)
+        icon_files = os.listdir(icons_dir)
     except Exception as e:
-        print(f"Error accessing covers directory: {e}")
+        print(f"Error accessing icons directory: {e}")
         sys.exit(1)
     
     # Check each entry
     for entry in entries:
         entry_id = entry.get("id", "unknown")
-        cover = entry.get("cover")
+        icon = entry.get("icon")
         
-        if cover:
-            if cover not in cover_files:
+        if icon:
+            if icon not in icon_files:
                 error = {
                     "id": entry_id,
                     "name": entry.get("name", "unknown"),
-                    "cover": cover,
-                    "error": "Cover file not found in covers directory"
+                    "icon": icon,
+                    "error": "Icon file not found in icons directory"
                 }
                 
-                similar_file = find_similar_filename(cover, cover_files)
+                similar_file = find_similar_filename(icon, icon_files)
                 if similar_file:
                     error["suggestion"] = similar_file
                 
@@ -99,12 +99,12 @@ def validate_covers(entries: List[Dict]) -> List[Dict]:
             # You could add additional checks here if needed
             # For example, validate the image file type, dimensions, etc.
     
-    # Check for unused cover files (optional)
-    used_covers = [entry.get("cover") for entry in entries if entry.get("cover")]
-    unused_covers = [f for f in cover_files if f not in used_covers]
-    if unused_covers:
-        print(f"Warning: Found {len(unused_covers)} unused cover files:")
-        for file in unused_covers:
+    # Check for unused icon files (optional)
+    used_icons = [entry.get("icon") for entry in entries if entry.get("icon")]
+    unused_icons = [f for f in icon_files if f not in used_icons]
+    if unused_icons:
+        print(f"Warning: Found {len(unused_icons)} unused icon files:")
+        for file in unused_icons:
             print(f"  - {file}")
     
     return errors
@@ -129,19 +129,19 @@ def main():
     else:
         print("✅ Schema validation passed!")
     
-    print("\n3. Validating cover files...")
-    cover_errors = validate_covers(config)
+    print("\n3. Validating icon files...")
+    icon_errors = validate_icons(config)
     
-    if cover_errors:
-        print(f"\n❌ Found {len(cover_errors)} cover validation errors:")
-        for error in cover_errors:
-            error_msg = f"  - Entry '{error['id']}' ({error['name']}): {error['error']} - Cover: '{error['cover']}'"
+    if icon_errors:
+        print(f"\n❌ Found {len(icon_errors)} icon validation errors:")
+        for error in icon_errors:
+            error_msg = f"  - Entry '{error['id']}' ({error['name']}): {error['error']} - Icon: '{error['icon']}'"
             if "suggestion" in error:
                 error_msg += f"\n    Did you mean: '{error['suggestion']}'?"
             print(error_msg)
         sys.exit(1)
     else:
-        print("✅ All cover files are valid!")
+        print("✅ All icon files are valid!")
     
     print("\n✅ Validation completed successfully!")
     sys.exit(0)
