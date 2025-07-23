@@ -26,6 +26,8 @@ A curated list of awesome Phala Cloud resources, tools, and templates.
 
 ### Other Templates
 
+- [**n8n Workflow Automation**](https://github.com/Phala-Network/awesome-phala-cloud/tree/main/templates/n8n) - A powerful workflow automation tool deployed on Phala Cloud with OAuth2 authentication fixes for TEE environment. Build complex automations, integrate with 400+ services, and run workflows securely within the TEE. *by n8n*
+- [**Maybe Finance**](https://github.com/Phala-Network/awesome-phala-cloud/tree/main/templates/maybe-ai) - A comprehensive open-source personal finance management app deployed on Phala Cloud. Track expenses, budgets, investments, and net worth with bank syncing, AI insights, and beautiful analytics - all secured within TEE infrastructure. *by Maybe Finance*
 - [**Anyone Anon Service**](https://github.com/rA3ka/dstack-examples/tree/main/anyone-anon-service) - Sets up a Anyone Anon (hidden) service and serves an nginx website from that. *by Anyone*
 - [**Anyone Network Relay**](https://github.com/rA3ka/anon-relay-docker/tree/main) - Set up a Anon relay and participate in expanding the Anyone Network by providing bandwidth to earn recognition rewards. *by Anyone*
 - [**TEE Tor Hidden Service**](https://github.com/Dstack-TEE/dstack-examples/tree/main/tor-hidden-service) - This docker compose example sets up a Tor hidden service and serves an nginx website from that. *by Dstack-TEE*

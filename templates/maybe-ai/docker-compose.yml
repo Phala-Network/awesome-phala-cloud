@@ -1,0 +1,113 @@
+version: '3.8'
+
+x-rails-env: &rails_env
+  SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+  SELF_HOSTED: "true"
+  # Critical: Tell Rails it's behind HTTPS proxy
+  RAILS_FORCE_SSL: "false"
+  RAILS_ASSUME_SSL: "true"
+  # Force HTTPS in URLs 
+  FORCE_SSL: "false"
+  X_FORWARDED_SSL: "on"
+  X_FORWARDED_PROTO: "https"
+  POSTGRES_USER: maybe_user
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  POSTGRES_DB: maybe_production
+  DB_HOST: db
+  DB_PORT: 5432
+  REDIS_URL: redis://redis:6379/1
+  RAILS_ENV: production
+  RAILS_LOG_TO_STDOUT: "true"
+  # Use DSTACK variables for proper domain configuration
+  APP_DOMAIN: "${DSTACK_APP_ID}-3000.${DSTACK_GATEWAY_DOMAIN}"
+  RAILS_HOSTS: ".${DSTACK_GATEWAY_DOMAIN},.teehouse.phatfn.xyz,localhost"
+  # Optional: OpenAI for AI features (leave empty to skip)
+  OPENAI_ACCESS_TOKEN: ${OPENAI_ACCESS_TOKEN:-}
+
+services:
+  db:
+    image: postgres:16-alpine
+    platform: linux/amd64
+    volumes:
+      - /var/run/tappd.sock:/var/run/tappd.sock
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: maybe_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: maybe_production
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U maybe_user -d maybe_production"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    platform: linux/amd64
+    volumes:
+      - /var/run/tappd.sock:/var/run/tappd.sock
+      - redis-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    image: ghcr.io/maybe-finance/maybe:latest
+    platform: linux/amd64
+    ports:
+      - "3000:3000"
+    volumes:
+      - /var/run/tappd.sock:/var/run/tappd.sock
+      - app-storage:/rails/storage
+    restart: unless-stopped
+    environment:
+      <<: *rails_env
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    # Fix HTTPS redirect issue for TEE environment
+    entrypoint: >
+      sh -c "
+        echo 'Starting Maybe Finance...' &&
+        echo 'Waiting for database...' &&
+        until pg_isready -h db -U maybe_user; do
+          echo 'Database is not ready, waiting...';
+          sleep 2;
+        done;
+        echo 'Database is ready!' &&
+        ./bin/rails db:prepare &&
+        echo 'Configuring Rails for Phala Cloud TEE...' &&
+        echo 'Rails.application.config.hosts.clear' | ./bin/rails runner - &&
+        echo 'Rails.application.config.force_ssl = false' | ./bin/rails runner - &&
+        echo 'Rails.application.config.assume_ssl = true' | ./bin/rails runner - &&
+        echo 'Setting.require_invite_for_signup = false' | ./bin/rails runner - &&
+        echo 'Starting Rails server...' &&
+        ./bin/rails server -b 0.0.0.0
+      "
+
+  worker:
+    image: ghcr.io/maybe-finance/maybe:latest
+    platform: linux/amd64
+    volumes:
+      - /var/run/tappd.sock:/var/run/tappd.sock
+      - app-storage:/rails/storage
+    restart: unless-stopped
+    environment:
+      <<: *rails_env
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: bundle exec sidekiq
+
+volumes:
+  app-storage:
+  postgres-data:
+  redis-data:
