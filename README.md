@@ -17,6 +17,7 @@ A curated list of awesome Phala Cloud resources, tools, and templates.
 - [**MCP Server Sequential Thinking**](https://github.com/Phala-Network/mcp-servers/tree/main/src/sequentialthinking) - A MCP server deployed on Phala Cloud that enables AI agents to think sequentially. *by Leechael*
 - [**Swarms Agent in Phala TEE**](https://github.com/The-Swarm-Corporation/Phala-Deployment-Template) - A Swarms agent deployed on Phala Cloud that perform a comprehensive legal team swarm for contract creation and management. *by The-Swarm-Corporation*
 - [**Armor Crypto**](https://github.com/HashWarlock/armor-crypto-mcp/tree/phala-mcp) - A single source for integrating AI Agents with the Crypto ecosystem. This includes Wallet creation and management, swaps, transfers, event-based trades like DCA, stop loss and take profit, and much more. The Armor MCP supports Solana in Alpha and, when in beta, will support more than a dozen blockchains, including Ethereum. Base, Avalanche, Bitcoin, Sui, Berachain, megaETH, Optimism, Ton, BNB, and Arbitrum, among others. Using Armor's MCP you can bring all of crypto into your AI Agent with unified logic and a complete set of tools. *by Armor Crypto*
+- [**Moralis MCP**](https://github.com/HashWarlock/moralis-mcp-server) - The Moralis MCP Server is a local or cloud-deployable engine that connects natural language prompts to real blockchain insights — allowing AI models to query wallet activity, token metrics, dapp usage, and more without custom code or SQL. *by Moralis*
 
 ### Starter Templates
 
