@@ -302,5 +302,42 @@
       { "key": "GOOGLE_OAUTH_CLIENT_SECRET", "required": false }
     ],
     "tags": ["Automation", "Workflow", "Integration"]
+  },
+  {
+    "id": "moralis-mcp",
+    "name": "Moralis MCP",
+    "description": "A Moralis MCP server deployed on Phala Cloud is an engine that connects natural language prompts to real blockchain insights — allowing AI models to query wallet activity, token metrics, dapp usage, and more without custom code or SQL.",
+    "repo": "https://github.com/HashWarlock/moralis-mcp-server",
+    "author": "HashWarlock",
+    "icon": "moralis.png",
+    "envs": [
+      {
+        "key": "BEARER_TOKEN",
+        "required": true
+      },
+      {
+        "key": "MORALIS_API_KEY",
+        "required": true
+      }
+    ],
+    "tags": [
+      "MCP"
+    ]
+  },
+  {
+    "id": "zep-graphiti-mcp",
+    "name": "Zep Graphiti MCP",
+    "description": "A Zep Graphiti MCP server deployed on Phala Cloud to build private Real-Time Knowledge Graphs for AI Agents.",
+    "repo": "https://github.com/HashWarlock/graphiti/tree/main/mcp_server",
+    "author": "HashWarlock",
+    "icon": "zep.png",
+    "envs": [
+      { "key": "OPENAI_API_KEY", "required": true },
+      { "key": "MODEL_NAME", "required": true },
+      { "key": "NEO4J_URI", "required": false },
+      { "key": "NEO4J_USER", "required": false },
+      { "key": "NEO4J_PASSWORD", "required": false }
+    ],
+    "tags": ["MCP", "Knowledge Graph"]
   }
 ]
