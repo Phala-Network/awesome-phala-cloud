@@ -35,6 +35,7 @@ A curated list of awesome Phala Cloud resources, tools, and templates.
 - [**Webshell**](https://github.com/Dstack-TEE/dstack-examples/tree/main/webshell) - This guide outlines the steps to set up and use a webshell with the ttyd service. *by Dstack-TEE*
 - [**Coinbase x402 TEE**](https://github.com/HashWarlock/402-api-test/tree/phala-cloud) - A demonstration of a Node.js Express server that integrates TEE and the [X402 payment protocol](https://www.x402.org/) for monetizing API endpoints. *by Phala-Network*
 - [**VRF in TEE**](https://github.com/Phala-Network/phala-cloud-vrf-template) - This is a template for developing a VRF generator on Phala Cloud and DStack. It delivers cryptographically verifiable randomness for Web3 applications with hardware-backed security and unprecedented efficiency. *by Phala-Network*
+- [**NEAR Shade Agent**](https://github.com/HashWarlock/shade-agent-template/tree/phala-cloud) [![](https://cloud.phala.network/deploy-button.svg)](https://cloud.phala.network/templates/near-shade-agent) - Deploy verifiable blockchain agents and oracles on NEAR Protocol using Phala Cloud's TEE infrastructure. Includes ETH price oracle example and framework for custom agent development with hardware-backed security, private key management, and attestation. *by Near*
 
 ## Contributing
 

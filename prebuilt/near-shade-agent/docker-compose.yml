@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  shade-agent-api:
+    image: mattdlockyer/shade-agent-api
+    platform: linux/amd64
+    volumes:
+      - /var/run/dstack.sock:/var/run/dstack.sock
+    environment:
+      - NEAR_ACCOUNT_ID=${NEAR_ACCOUNT_ID}
+      - NEAR_SEED_PHRASE=${NEAR_SEED_PHRASE}
+      - API_CODEHASH=${API_CODEHASH}
+      - NEAR_RPC_JSON=${NEAR_RPC_JSON:-https://rpc.testnet.near.org}
+    restart: always
+    depends_on:
+      - shade-agent-app
+
+  shade-agent-app:
+    image: ${DOCKER_TAG}
+    platform: linux/amd64
+    ports:
+      - "3000:3000"
+    volumes:
+      - /var/run/dstack.sock:/var/run/dstack.sock
+    environment:
+      - NEAR_ACCOUNT_ID=${NEAR_ACCOUNT_ID}
+      - NEAR_SEED_PHRASE=${NEAR_SEED_PHRASE}
+      - NEXT_PUBLIC_contractId=${NEXT_PUBLIC_contractId}
+      - API_CODEHASH=${API_CODEHASH}
+      - APP_CODEHASH=${APP_CODEHASH}
+      - DOCKER_TAG=${DOCKER_TAG}
+      - PHALA_API_KEY=${PHALA_API_KEY}
+    restart: always
