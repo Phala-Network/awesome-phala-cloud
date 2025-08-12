@@ -38,6 +38,7 @@ A curated list of awesome Phala Cloud resources, tools, and templates.
 - [**Coinbase x402 TEE**](https://github.com/HashWarlock/402-api-test/tree/phala-cloud) - A demonstration of a Node.js Express server that integrates TEE and the [X402 payment protocol](https://www.x402.org/) for monetizing API endpoints. *by Phala-Network*
 - [**VRF in TEE**](https://github.com/Phala-Network/phala-cloud-vrf-template) - This is a template for developing a VRF generator on Phala Cloud and DStack. It delivers cryptographically verifiable randomness for Web3 applications with hardware-backed security and unprecedented efficiency. *by Phala-Network*
 - [**Microsoft Presidio in TEE**](https://github.com/HashWarlock/presidio/tree/phala-cloud/docs/samples/python/streamlit) - This is a demo application for Microsoft Presidio, a powerful open-source framework for PII (Personally Identifiable Information) detection and de-identification. This demo is optimized for deployment on Phala Cloud's Confidential Virtual Machines (CVMs). *by Microsoft*
+- [**NEAR Shade Agent**](https://github.com/HashWarlock/shade-agent-template/tree/phala-cloud) - Deploy verifiable blockchain agents and oracles on NEAR Protocol using Phala Cloud's TEE infrastructure. Includes ETH price oracle example and framework for custom agent development with hardware-backed security, private key management, and attestation. *by Near*
 
 ## Contributing
 

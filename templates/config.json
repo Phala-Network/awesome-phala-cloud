@@ -348,5 +348,55 @@
     "author": "HashWarlock",
     "icon": "msft-presidio.png",
     "tags": ["De-Identification"]
+  },
+  {
+    "id": "near-shade-agent",
+    "name": "NEAR Shade Agent",
+    "description": "Deploy verifiable blockchain agents and oracles on NEAR Protocol using Phala Cloud's TEE infrastructure. Includes ETH price oracle example and framework for custom agent development.",
+    "repo": "https://github.com/HashWarlock/shade-agent-template/tree/phala-cloud",
+    "author": "HashWarlock",
+    "icon": "near-shade-agent.png",
+    "envs": [
+      { 
+        "key": "NEAR_ACCOUNT_ID", 
+        "required": true, 
+        "description": "NEAR account ID obtained from near-cli-rs" 
+      },
+      { 
+        "key": "NEAR_SEED_PHRASE", 
+        "required": true, 
+        "description": "NEAR account seed phrase for authentication" 
+      },
+      { 
+        "key": "NEXT_PUBLIC_contractId", 
+        "required": true, 
+        "description": "Contract ID (ac-proxy.[NEAR_ACCOUNT_ID] for local, ac-sandbox.[NEAR_ACCOUNT_ID] for Phala Cloud)", 
+        "default": "ac-proxy.NEAR_ACCOUNT_ID" 
+      },
+      { 
+        "key": "API_CODEHASH", 
+        "required": true, 
+        "description": "Shade agent API code hash (do not change)", 
+        "default": "a86e3a4300b069c08d629a38d61a3d780f7992eaf36aa505e4527e466553e2e5" 
+      },
+      { 
+        "key": "APP_CODEHASH", 
+        "required": true, 
+        "description": "Your app's code hash (updates automatically with shade-agent-cli)", 
+        "default": "af0c4432864489eb8c6650a6dc61f03ef831240a4199e602cd4d6bd8f4d7163f" 
+      },
+      { 
+        "key": "DOCKER_TAG", 
+        "required": true, 
+        "description": "Docker tag in format docker_username/image_name", 
+        "default": "pivortex/my-app" 
+      },
+      { 
+        "key": "PHALA_API_KEY", 
+        "required": true, 
+        "description": "Phala API key from https://cloud.phala.network/dashboard/tokens" 
+      }
+    ],
+    "tags": ["Agent", "NEAR", "Oracle", "TEE"]
   }
 ]
