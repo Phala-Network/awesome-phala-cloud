@@ -362,9 +362,9 @@
     "id": "near-shade-agent",
     "name": "NEAR Shade Agent",
     "description": "Deploy verifiable blockchain agents and oracles on NEAR Protocol using Phala Cloud's TEE infrastructure. Includes ETH price oracle example and framework for custom agent development.",
-    "repo": "https://github.com/HashWarlock/shade-agent-template/tree/phala-cloud",
+    "repo": "https://github.com/Phala-Network/awesome-phala-cloud/tree/main/prebuilt/near-shade-agent",
     "author": "HashWarlock",
-    "icon": "near-shade-agent.png",
+    "icon": "mcp-near.svg",
     "envs": [
       { 
         "key": "NEAR_ACCOUNT_ID", 
@@ -407,5 +407,31 @@
       }
     ],
     "tags": ["Agent", "NEAR", "Oracle", "TEE"]
+  },
+  {
+    "id": "bytebot",
+    "name": "ByteBot AI Desktop Agent",
+    "description": "Deploy ByteBot, an open-source AI desktop agent, on Phala Cloud's secure TEE infrastructure. ByteBot can control a computer desktop to complete tasks for you, running in Docker containers on your own infrastructure. Simply describe what you need done in plain English, and ByteBot will figure out how to do it – clicking buttons, typing text, navigating websites, reading documents, and completing tasks just like a human would.",
+    "repo": "https://github.com/Phala-Network/awesome-phala-cloud/tree/main/prebuilt/bytebot",
+    "author": "ByteBot AI",
+    "icon": "bytebot.svg",
+    "envs": [
+      {
+        "key": "ANTHROPIC_API_KEY",
+        "required": false,
+        "description": "Anthropic Claude API key for AI task planning and execution (at least one API key required)"
+      },
+      {
+        "key": "OPENAI_API_KEY",
+        "required": false,
+        "description": "OpenAI GPT API key for AI task planning and execution (at least one API key required)"
+      },
+      {
+        "key": "GEMINI_API_KEY",
+        "required": false,
+        "description": "Google Gemini API key for AI task planning and execution (at least one API key required)"
+      }
+    ],
+    "tags": ["AI", "Automation"]
   }
 ]
