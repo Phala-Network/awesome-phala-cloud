@@ -442,5 +442,23 @@
     "author": "Gldywn",
     "icon": "hha.png",
     "tags": ["Oracle", "Node"]
+  },
+  {
+    "id": "akave-link",
+    "name": "Akave Link (Confidential Storage API)",
+    "description": "A production-ready Akave decentralized storage API with interactive UI, password-gated access (optional), and wallet connect/disconnect, running in Phala Cloud's TEE.",
+    "repo": "https://github.com/DylanCkawalec/akavelink",
+    "author": "DylanCkawalec",
+    "icon": "akave-link.png",
+    "envs": [
+      { "key": "NODE_ADDRESS", "required": true, "default": "connect.akave.ai:5500", "description": "Akave node endpoint" },
+      { "key": "PRIVATE_KEY", "required": true, "description": "Ethereum private key for Akave" },
+      { "key": "ADMIN_PASSWORD_HASH", "required": false, "description": "bcrypt hash for API password (protects all routes)" },
+      { "key": "PORT", "required": false, "default": "80" },
+      { "key": "CORS_ORIGIN", "required": false, "default": "*" },
+      { "key": "DEBUG", "required": false, "default": "true" }
+    ],
+    "defaultResource": { "vCPU": 2, "memory": 2048, "diskSize": 20 },
+    "tags": ["Storage", "Akave", "REST", "TEE"]
   }
 ]

@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app:
+    image: dylanckawalec/akavelink:latest
+    container_name: app
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/tappd.sock:/var/run/tappd.sock
+      - ./downloads:/app/downloads
+    environment:
+      NODE_ADDRESS: ${NODE_ADDRESS}
+      PRIVATE_KEY: ${PRIVATE_KEY}
+      PORT: ${PORT}
+      CORS_ORIGIN: ${CORS_ORIGIN}
+      DEBUG: ${DEBUG}
+    restart: always
