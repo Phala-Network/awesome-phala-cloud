@@ -1,3 +1,5 @@
+# This Repo Has Been Moved to https://github.com/Phala-Network/phala-cloud/tree/main/awesome-phala-cloud
+
 # Awesome Phala Cloud
 
 [![](https://cloud.phala.network/deploy-button.svg)](https://cloud.phala.network/templates)
